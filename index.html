@@ -7,40 +7,30 @@
     <title>Google Yorum Görev Sistemi</title>
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3b82f6">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: '#3b82f6',
-              secondary: '#64748b',
-              success: '#22c55e', 
-              danger: '#ef4444', 
-              warning: '#f97316', 
-              info: '#0ea5e9', 
-            }
-          }
-        }
-      }
-    </script>
+    <!-- Tailwind directives will be injected by Vite via PostCSS -->
+    <style>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+    </style>
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
     "tailwind-merge": "https://aistudiocdn.com/tailwind-merge@^3.4.0",
+    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
     "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
-    "jspdf": "https://aistudiocdn.com/jspdf@^3.0.4",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
     "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1",
-    "uuid": "https://aistudiocdn.com/uuid@^13.0.0",
-    "clsx": "https://aistudiocdn.com/clsx@^2.1.1",
+    "jspdf": "https://aistudiocdn.com/jspdf@^3.0.4",
+    "xlsx": "https://aistudiocdn.com/xlsx@^0.18.5",
     "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
-    "xlsx": "https://aistudiocdn.com/xlsx@^0.18.5"
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
   }
 }
 </script>
@@ -56,5 +46,21 @@
         });
       }
     </script>
+    <!-- Webpushr Integration Code -->
+    <script>
+    (function(w,d, s, id) {
+        if(typeof(w.webpushr)!=='undefined') return;
+        w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};
+        var js, fjs = d.getElementsByTagName(s)[0];
+        js = d.createElement(s); js.id = id; js.async=1;
+        js.src = "https://cdn.webpushr.com/app.min.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(window,document, 'script', 'webpushr-jssdk'));
+    
+    // Replace this with your actual Webpushr Key if you have one, otherwise it waits for setup
+    webpushr('init','YOUR_WEBPUSHR_KEY_HERE'); 
+    </script>
+    <!-- Vite Entry Point -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
